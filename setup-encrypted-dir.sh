@@ -42,7 +42,7 @@ mkdir "$SYNC_DIR" || exit 1
 openssl rand -base64 -out "$KEY_FILE" 48 || exit 1
 
 # Initialize the configuration
-gocryptfs -init -passfile "$KEY_FILE" -reverse -deterministic-names "$PRIVATE_DIR" || exit 1
+gocryptfs -init -passfile "$KEY_FILE" -reverse -plaintextnames "$PRIVATE_DIR" || exit 1
 
 echo "Set up encrypted view of $PRIVATE_DIR. Mount it with:
 
