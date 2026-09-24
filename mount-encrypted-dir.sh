@@ -36,7 +36,11 @@ gocryptfs -passfile "$KEY_FILE" -reverse -ro "$PRIVATE_DIR" "$SYNC_DIR"
 
 _unmount() {
     echo Unmounting "$SYNC_DIR"
-    fusermount -u "$SYNC_DIR"
+    fusermount -u "$SYNC_DIR" || {
+        echo "Failed to unmount $SYNC_DIR"
+        echo "You may need to run 'fusermount -u $SYNC_DIR' manually"
+        exit 1
+    }
     exit "$1"
 }
 
