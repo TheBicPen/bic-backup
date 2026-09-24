@@ -12,6 +12,7 @@ BASE_ENCRYPTED_DIR="$HOME/encrypted-cloud-sync"
 
 if [ "$#" -lt 1 ]; then
     echo "Select a directory to encrypt and back up"
+    exit 1
 fi
 
 # Initialize a PRIVATE_DIR with setup-encrypted-backup.sh
